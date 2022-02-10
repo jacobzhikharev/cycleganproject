@@ -67,8 +67,8 @@ train.py -n number_of_epochs -sd directory_for_model_weights
 generate.py -n number_of_epochs 
       -sd directory_for_model_weights 
       -dA directory_with_images_A 
-      -drA directory_for_transformed_A
       -dB directory_with_images_B
+      -drA directory_for_transformed_A
       -drB directory_for_transformed_B
       -wG dir_for_G_weights
       -wF dir_for_F_weights
