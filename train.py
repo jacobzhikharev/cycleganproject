@@ -44,8 +44,6 @@ if(args.save_dir):
 else:
     dsave = config.dir_saves
 
-# TODO: Change to correct model
-
 default_transforms = tt.Compose([tt.Resize(config.image_size),
                      tt.CenterCrop(config.image_size),
                      tt.ToTensor(),
@@ -57,41 +55,15 @@ default_transforms = tt.Compose([tt.Resize(config.image_size),
 dataset = paired_dataset_updated(dA,dB, default_transforms,requires_flip=True)
 dataloader = DataLoader(dataset,batch_size = config.batch_size,shuffle = True)
 
-class d(torch.nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.s1 = torch.nn.Sequential(
-            torch.nn.ReLU(),
-            nn.Conv2d(3,3,3,1,1),
-            torch.nn.Sigmoid(),
-        )
-    def forward(self,x):
-        return self.s1(x)
-
-
-class g(torch.nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.s1 = torch.nn.Sequential(
-        torch.nn.ReLU(),
-        nn.Conv2d(3,3,3,1,1),
-        torch.nn.Sigmoid())
-    def forward(self,x):
-        return self.s1(x)
-
 gan_loss = MSELoss()
 cycle_loss = L1Loss()
 buffer_a = buffer()
 buffer_b = buffer()
 
-# Dx = Discriminator().to(device)#x and F(y) X == A Y == B
-# Dy = Discriminator().to(device)#y and G(x)
-# G = Generator().to(device)#G:X->Y
-# F = Generator().to(device)#F:Y->X
-Dx = d().to(config.device)#x and F(y) X == A Y == B
-Dy = d().to(config.device)#y and G(x)
-G = g().to(config.device)#F:X->Y
-F = g().to(config.device)#F:Y->X
+Dx = Discriminator().to(device)#x and F(y) X == A Y == B
+Dy = Discriminator().to(device)#y and G(x)
+G = Generator().to(device)#G:X->Y
+F = Generator().to(device)#F:Y->X
 
 Dx.apply(weights_init)
 Dy.apply(weights_init)
