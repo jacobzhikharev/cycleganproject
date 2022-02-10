@@ -19,8 +19,8 @@ parser.add_argument('-dA','--dir_A', type=str, help='directory for A pictures, d
 parser.add_argument('-dB','--dir_B', type=str, help='directory for B pictures, default: config.dir_test_B ')
 parser.add_argument('-drA','--dir_res_A', type=str, help='directory to save transformed A pictures, default: config.dir_resA')
 parser.add_argument('-drB','--dir_res_B', type=str, help='directory to save transformed B pictures, default: config.dir_resB')
-parser.add_argument('-wG','--wG_dir',type = str,help = 'directory for A weights, default: ./saves/gen_G')
-parser.add_argument('-wF','--wF_dir',type = str, help = 'directory for B weights, default: ./saves/gen_F')
+parser.add_argument('-wG','--wG_dir',type = str,help = 'directory for G weights, default: ./saves/gen_G')
+parser.add_argument('-wF','--wF_dir',type = str, help = 'directory for F weights, default: ./saves/gen_F')
 args = parser.parse_args()
 
 if(args.dir_res_A):
