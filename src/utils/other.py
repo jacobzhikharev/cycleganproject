@@ -5,7 +5,7 @@ import numpy as np
 import src.utils.config as config
 
 #Буфер сделан и работает только для batch_size = 1
-
+#Алгоритм схож с буффером, использованным в гитхабе к статье
 class buffer():
     def __init__(self):
         self.size = config.buffer_size
