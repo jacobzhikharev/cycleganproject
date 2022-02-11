@@ -52,6 +52,16 @@ MIPT DLS part 1 final project<br>
 ![](./results/watermelons_and_pumpkins/p_w/orig_p2.jpg)
 ![](./results/watermelons_and_pumpkins/p_w/res_p2.jpg)<br>
 # Модель
+## Структура репозитория
+- bin - загрузка датасетов
+- losses - графики лоссов при обучении
+- results - полученные изображения
+- src/data - dataloaders
+- src/model - генератор и дискриминатор
+- src/utils/other - буффер и вспомогательные функции
+- src/utils/config - параметры моделей
+- weights - веса с описанием
+## Параметры
 Для загрузки датасетов(кроме watermelon2pumpkin) используется 
 ~~~~
 ./download_data.sh dataset_name
